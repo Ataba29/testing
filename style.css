@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.lightmode {
+  /* Add your light mode styles here */
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Styles for dark mode */
+.darkmode {
+  /* Add your dark mode styles here */
+  background-color: #000000;
+  color: #ffffff;
+}
+/*add your custom css rules here*/
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--light-color);
+  font-family: "Arial", sans-serif;
+}
+
+.calculator {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+}
+
+.display {
+  background-color: #222;
+  color: #fff;
+  font-size: 2em;
+  padding: 20px;
+  text-align: right;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+
+.btn,
+.operator,
+.clear,
+.sm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear {
+  background-color: #ff0000;
+}
+
+.clear:hover {
+  background-color: #7b0909;
+}
+/* Specific styles for calculator buttons in dark mode */
+.btn {
+  background-color: #707070;
+}
+.darkmode .btn {
+  /* Add specific styles for calculator buttons in dark mode */
+  background-color: #a8a8a8;
+}
+
+.btn:hover {
+  background-color: #abaaaa;
+}
+
+.operator {
+  background-color: #ff9500;
+}
+
+/* Specific styles for the operator buttons in dark mode */
+.darkmode .operator {
+  background-color: #666666;
+}
+
+.operator:hover {
+  background-color: #e08900;
+}
+
+.btn.zero {
+  grid-column: span 2;
+}
+/* Specific styles for the zero button in dark mode */
+.darkmode .zero {
+  background-color: #a8a8a8;
+}
+
+.sm {
+  background-color: #c3c3c3;
+}
+
+.sm:hover {
+  background-color: #5e5e5e;
+}
+/* ------------ VARIABLES ------------ */
+:root {
+  /* COLORS */
+  --color: #9176ff;
+  --dark-color: #2b2b2b;
+  --dark-icon-color: #fff;
+  --light-color: #f7f7f7;
+  --light-icon-color: #ffde59;
+}
+
+/* ------------ BASE ------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* -------------- THEMEBUTTON -------------- */
+.theme {
+  background-color: #fff;
+  width: 11.5em;
+  height: 4em;
+  border-radius: 10em;
+  padding: 0 0.5em;
+
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+    inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.theme__indicator {
+  background-color: #fff;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50%;
+
+  position: absolute;
+
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.3s ease;
+}
+
+.theme__icon-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme__icon {
+  color: var(--light-icon-color);
+  font-size: 3rem;
+}
+
+/* -------------- ANIMATION ------------ */
+.theme__icon.animated {
+  animation: spin 0.5s;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------- DARKMODE -------------- */
+body.darkmode {
+  background-color: var(--dark-color);
+}
+
+.darkmode .theme {
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.3),
+    inset 8px 0 8px rgba(0, 0, 0, 0.3), inset 0 -4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.darkmode .theme__indicator {
+  transform: translateX(7em);
+  background-color: var(--dark-color);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.darkmode .theme__icon {
+  color: var(--dark-icon-color);
+}
